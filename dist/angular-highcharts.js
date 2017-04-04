@@ -123,7 +123,7 @@ var _class = function () {
 
     _classCallCheck(this, _class);
 
-    this.options = options;
+    this.options = angular.copy(options);
   }
 
   _createClass(_class, [{
@@ -157,7 +157,9 @@ var _class = function () {
     }
   }, {
     key: "addSeries",
-    value: function addSeries(id, series) {
+    value: function addSeries(id, _series) {
+      var series = angular.copy(_series);
+
       this._initSeries();
 
       if (this._findSeries(id)) {
