@@ -16,7 +16,7 @@ module.exports = function(config) {
     ],
 
     plugins: [
-      'karma-phantomjs-launcher',
+      'karma-chrome-launcher',
       'karma-babel-preprocessor',
       'karma-spec-reporter',
       'karma-browserify',
@@ -45,7 +45,7 @@ module.exports = function(config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
     singleRun: false
   });
 }
