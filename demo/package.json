@@ -1,0 +1,34 @@
+{
+  "name": "demo-app",
+  "version": "0.1.0",
+  "description": "Demo of Unity Angular Highcharts",
+  "author": "Maciej Gurban <maciej@unity3d.com>",
+  "main": "app.js",
+  "scripts": {
+    "build": "browserify app.js > app.final.js"
+  },
+  "dependencies": {
+    "angular": "1.6.1",
+    "highcharts": "4.2.0",
+    "unity-angular-highcharts": "git@github.com:Applifier/unity-angular-highcharts.git#0.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "6.10.1",
+    "babel-preset-es2015": "6.9.0",
+    "babelify": "7.3.0",
+    "browserify": "13.1.0",
+    "browserify-ngannotate": "2.0.0"
+  },
+  "browserify": {
+    "transform": [
+      "babelify",
+      "browserify-ngannotate"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "private": true
+}
