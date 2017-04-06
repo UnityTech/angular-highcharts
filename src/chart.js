@@ -1,7 +1,7 @@
 export default class {
 
   constructor(options = {}) {
-    this.options = options;
+    this.options = angular.copy(options);
   }
 
   _findSeries(id) {
@@ -23,7 +23,9 @@ export default class {
     }
   }
 
-  addSeries(id, series) {
+  addSeries(id, _series) {
+    const series = angular.copy(_series);
+
     this._initSeries();
 
     if (this._findSeries(id)) {
