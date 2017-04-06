@@ -23,21 +23,15 @@ export default class {
     }
   }
 
-  addSeries(id, _series) {
-    const series = angular.copy(_series);
-
+  addSeries(...series) {
     this._initSeries();
 
-    if (this._findSeries(id)) {
-      throw new Error(`Series with ID '${id}' already exists.`);
-    }
-
-    if (!series.data) {
-      series.data = [];
-    }
-
-    series.id = id;
-    this.options.series.push(series);
+    series.forEach(({ id, data = []}) => {
+      if (this._findSeries(id)) {
+        throw new Error(`Series with ID '${id}' already exists.`);
+      }
+      this.options.series.push({ id, data });
+    });
   }
 
   removeSeries(id) {
