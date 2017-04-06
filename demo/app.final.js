@@ -33382,24 +33382,33 @@ var UsageDemo = function () {
         type: 'line'
       },
       title: {
-        text: 'Linechart'
-      },
-      credits: {
-        enabled: false
-      },
-      series: [{
-        id: 'foo',
-        name: 'Line 1',
-        data: [1, 5, 3]
-      }]
+        text: null
+      }
+    });
+    // You may want to separate chart initialization from adding series
+    // Upon receiving data, the chart will only rerender without it "jumping"
+    // or having us needing to create a placeholder with the right size
+    this.chart.addSeries({
+      id: 'foo',
+      name: 'Line 1',
+      data: [1, 5, 3]
     });
   }
 
   _createClass(UsageDemo, [{
     key: 'addSeries',
     value: function addSeries() {
-      this.chart.addSeries('bar', {
-        data: [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)]
+      var barData = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
+      var bazData = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
+
+      this.chart.addSeries({
+        id: 'bar',
+        name: 'Line 2',
+        data: barData
+      }, {
+        id: 'baz',
+        name: 'Line 3',
+        data: bazData
       });
     }
   }, {
@@ -33640,21 +33649,25 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           }
         }, {
           key: "addSeries",
-          value: function addSeries(id, _series) {
-            var series = angular.copy(_series);
+          value: function addSeries() {
+            var _this = this;
 
             this._initSeries();
 
-            if (this._findSeries(id)) {
-              throw new Error("Series with ID '" + id + "' already exists.");
+            for (var _len = arguments.length, series = Array(_len), _key = 0; _key < _len; _key++) {
+              series[_key] = arguments[_key];
             }
 
-            if (!series.data) {
-              series.data = [];
-            }
+            series.forEach(function (_ref) {
+              var id = _ref.id,
+                  _ref$data = _ref.data,
+                  data = _ref$data === undefined ? [] : _ref$data;
 
-            series.id = id;
-            this.options.series.push(series);
+              if (_this._findSeries(id)) {
+                throw new Error("Series with ID '" + id + "' already exists.");
+              }
+              _this.options.series.push({ id: id, data: data });
+            });
           }
         }, {
           key: "removeSeries",

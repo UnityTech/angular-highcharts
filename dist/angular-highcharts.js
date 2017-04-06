@@ -157,21 +157,25 @@ var _class = function () {
     }
   }, {
     key: "addSeries",
-    value: function addSeries(id, _series) {
-      var series = angular.copy(_series);
+    value: function addSeries() {
+      var _this = this;
 
       this._initSeries();
 
-      if (this._findSeries(id)) {
-        throw new Error("Series with ID '" + id + "' already exists.");
+      for (var _len = arguments.length, series = Array(_len), _key = 0; _key < _len; _key++) {
+        series[_key] = arguments[_key];
       }
 
-      if (!series.data) {
-        series.data = [];
-      }
+      series.forEach(function (_ref) {
+        var id = _ref.id,
+            _ref$data = _ref.data,
+            data = _ref$data === undefined ? [] : _ref$data;
 
-      series.id = id;
-      this.options.series.push(series);
+        if (_this._findSeries(id)) {
+          throw new Error("Series with ID '" + id + "' already exists.");
+        }
+        _this.options.series.push({ id: id, data: data });
+      });
     }
   }, {
     key: "removeSeries",
