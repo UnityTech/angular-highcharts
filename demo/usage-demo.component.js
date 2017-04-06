@@ -5,29 +5,42 @@ class UsageDemo {
     this.loading = false;
     this.chart = new Chart({
       chart: {
-        type: 'line'
+        type: 'line',
       },
       title: {
-        text: 'Linechart'
+        text: null,
       },
-      credits: {
-        enabled: false
-      },
-      series: [{
-        id: 'foo',
-        name: 'Line 1',
-        data: [1, 5, 3]
-      }]
+    });
+    // You may want to separate chart initialization from adding series
+    // Upon receiving data, the chart will only rerender without it "jumping"
+    // or having us needing to create a placeholder with the right size
+    this.chart.addSeries({
+      id: 'foo',
+      name: 'Line 1',
+      data: [1, 5, 3],
     });
   }
 
   addSeries() {
-    this.chart.addSeries('bar', {
-      data: [
-        Math.floor(Math.random() * 10),
-        Math.floor(Math.random() * 10),
-        Math.floor(Math.random() * 10)
-      ]
+    const barData = [
+      Math.floor(Math.random() * 10),
+      Math.floor(Math.random() * 10),
+      Math.floor(Math.random() * 10),
+    ];
+    const bazData = [
+      Math.floor(Math.random() * 10),
+      Math.floor(Math.random() * 10),
+      Math.floor(Math.random() * 10),
+    ];
+
+    this.chart.addSeries({
+      id: 'bar',
+      name: 'Line 2',
+      data: barData
+    }, {
+      id: 'baz',
+      name: 'Line 3',
+      data: bazData
     });
   }
 
