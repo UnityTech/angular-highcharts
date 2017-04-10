@@ -35,7 +35,7 @@ describe('Chart', () => {
 
     it('does not mutate passed series', () => {
       const original = angular.copy(seriesOne);
-      chart.addSeries('foo', seriesOne);
+      chart.addSeries(seriesOne);
 
       expect(seriesOne).toEqual(original);
     });
@@ -51,7 +51,7 @@ describe('Chart', () => {
     });
 
     it('adds multiple series in one call', () => {
-      chart.addSeries(...[seriesOne, seriesTwo]);
+      chart.addSeries(seriesOne, seriesTwo);
 
       expect(chart.options.series).toEqual([
         seriesOne,
@@ -60,8 +60,8 @@ describe('Chart', () => {
     });
 
     it('throws when adding a series with duplicate id', () => {
-      chart.addSeries('foo', seriesOne);
-      
+      chart.addSeries(seriesOne);
+
       expect(() => chart.addSeries(seriesOne)).toThrow();
     });
   });

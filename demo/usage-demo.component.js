@@ -11,9 +11,9 @@ class UsageDemo {
         text: null,
       },
     });
-    // You may want to separate chart initialization from adding series
-    // Upon receiving data, the chart will only rerender without it "jumping"
-    // or having us needing to create a placeholder with the right size
+    // Separate chart initialization from adding series so that
+    // upon receiving data, the chart will only rerender without it jumping.
+    // This removes the need to create a placeholder with the right size.
     this.chart.addSeries({
       id: 'foo',
       name: 'Line 1',
