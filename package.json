@@ -1,6 +1,6 @@
 {
-  "name": "unity-angular-highcharts",
-  "version": "0.1.0",
+  "name": "angular-highcharts",
+  "version": "0.2.0",
   "description": "Highcharts wrapper for Angular 1.x",
   "author": "Maciej Gurban <maciej@unity3d.com>",
   "main": "dist/angular-highcharts.js",
