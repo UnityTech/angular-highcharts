@@ -5,7 +5,7 @@
   "author": "Maciej Gurban <maciej@unity3d.com>",
   "main": "dist/angular-highcharts.js",
   "scripts": {
-    "test": "karma start ./karma.conf.js",
+    "test": "karma start ./karma.conf.js --watch",
     "build": "browserify src/angular-highcharts.js -s angular-highcharts | derequire > dist/angular-highcharts.js && npm run build-demo",
     "build-demo": "browserify demo/app.js > demo/app.final.js",
     "watch": "watchify src/angular-highcharts.js -o dist/angular-highcharts.js",
