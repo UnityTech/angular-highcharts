@@ -9,6 +9,11 @@ Clone project repo, and inside its directory, execute:
 npm install
 ```
 
+### Run unit tests
+```
+npm test
+```
+
 ### Run the dev task
 ```
 npm run watch
