@@ -48,6 +48,10 @@ class UsageDemo {
     this.chart.removeSeries('bar');
   }
 
+  removeAllSeries() {
+    this.chart.removeAllSeries();
+  }
+
   toggleLoading() {
     this.loading = !this.loading;
   }
@@ -61,6 +65,9 @@ export default {
     </button>
     <button ng-click="$ctrl.removeSeries();">
       REMOVE BAR SERIES
+    </button>
+    <button ng-click="$ctrl.removeAllSeries();">
+      REMOVE All SERIES
     </button>
     <button ng-click="$ctrl.toggleLoading();">
       TOGGLE LOADING

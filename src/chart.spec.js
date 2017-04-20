@@ -65,7 +65,7 @@ describe('Chart', () => {
       };
 
       chart.addSeries(customSeriesObject);
-      
+
       expect(chart.options.series).toEqual([
         customSeriesObject,
       ]);
@@ -97,6 +97,24 @@ describe('Chart', () => {
 
     it('throws when trying to remove non-existent series', () => {
       expect(() => chart.removeSeries('bar')).toThrow();
+    });
+  });
+
+  describe('calling removeAllSeries()', () => {
+    let chart;
+
+    beforeEach(() => {
+      chart = new Chart({
+        series: [{
+          id: 'foo',
+          data: [],
+        }]
+      });
+      chart.removeAllSeries();
+    });
+
+    it('removes all existing series', () => {
+      expect(chart.options.series).toEqual([]);
     });
   });
 });

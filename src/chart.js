@@ -45,4 +45,8 @@ export default class {
     this._removeSeries(index);
   }
 
+  removeAllSeries() {
+    this.options.series = [];
+  }
+
 }

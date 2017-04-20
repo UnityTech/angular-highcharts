@@ -33417,6 +33417,11 @@ var UsageDemo = function () {
       this.chart.removeSeries('bar');
     }
   }, {
+    key: 'removeAllSeries',
+    value: function removeAllSeries() {
+      this.chart.removeAllSeries();
+    }
+  }, {
     key: 'toggleLoading',
     value: function toggleLoading() {
       this.loading = !this.loading;
@@ -33428,7 +33433,7 @@ var UsageDemo = function () {
 
 exports.default = {
   controller: UsageDemo,
-  template: '\n    <button ng-click="$ctrl.addSeries();">\n      ADD NEW SERIES\n    </button>\n    <button ng-click="$ctrl.removeSeries();">\n      REMOVE BAR SERIES\n    </button>\n    <button ng-click="$ctrl.toggleLoading();">\n      TOGGLE LOADING\n    </button>\n    <chart\n      loading="$ctrl.loading"\n      chart="$ctrl.chart">\n    </chart>\n  '
+  template: '\n    <button ng-click="$ctrl.addSeries();">\n      ADD NEW SERIES\n    </button>\n    <button ng-click="$ctrl.removeSeries();">\n      REMOVE BAR SERIES\n    </button>\n    <button ng-click="$ctrl.removeAllSeries();">\n      REMOVE All SERIES\n    </button>\n    <button ng-click="$ctrl.toggleLoading();">\n      TOGGLE LOADING\n    </button>\n    <chart\n      loading="$ctrl.loading"\n      chart="$ctrl.chart">\n    </chart>\n  '
 };
 
 },{"../dist/angular-highcharts":6}],6:[function(require,module,exports){
@@ -33676,6 +33681,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             }
 
             this._removeSeries(index);
+          }
+        }, {
+          key: "removeAllSeries",
+          value: function removeAllSeries() {
+            this.options.series = [];
           }
         }]);
 
