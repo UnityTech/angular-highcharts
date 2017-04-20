@@ -59,6 +59,18 @@ describe('Chart', () => {
       ]);
     });
 
+    it('passes through all object keys of a series', () => {
+      const customSeriesObject = {
+        id: 'foo', data: [], foo: true, bar: false
+      };
+
+      chart.addSeries(customSeriesObject);
+      
+      expect(chart.options.series).toEqual([
+        customSeriesObject,
+      ]);
+    });
+
     it('throws when adding a series with duplicate id', () => {
       chart.addSeries(seriesOne);
 
