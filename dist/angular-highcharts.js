@@ -185,6 +185,11 @@ var _class = function () {
 
       this._removeSeries(index);
     }
+  }, {
+    key: "removeAllSeries",
+    value: function removeAllSeries() {
+      this.options.series = [];
+    }
   }]);
 
   return _class;
