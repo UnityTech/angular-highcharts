@@ -110,10 +110,10 @@ describe('Chart', () => {
           data: [],
         }]
       });
+      chart.removeAllSeries();
     });
 
     it('removes all existing series', () => {
-      chart.removeAllSeries();
       expect(chart.options.series).toEqual([]);
     });
   });
