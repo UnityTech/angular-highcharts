@@ -166,15 +166,11 @@ var _class = function () {
         series[_key] = arguments[_key];
       }
 
-      series.forEach(function (_ref) {
-        var id = _ref.id,
-            _ref$data = _ref.data,
-            data = _ref$data === undefined ? [] : _ref$data;
-
-        if (_this._findSeries(id)) {
-          throw new Error("Series with ID '" + id + "' already exists.");
+      series.forEach(function (params) {
+        if (_this._findSeries(params.id)) {
+          throw new Error("Series with ID '" + params.id + "' already exists.");
         }
-        _this.options.series.push({ id: id, data: data });
+        _this.options.series.push(params);
       });
     }
   }, {

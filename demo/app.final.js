@@ -33385,9 +33385,9 @@ var UsageDemo = function () {
         text: null
       }
     });
-    // You may want to separate chart initialization from adding series
-    // Upon receiving data, the chart will only rerender without it "jumping"
-    // or having us needing to create a placeholder with the right size
+    // Separate chart initialization from adding series so that
+    // upon receiving data, the chart will only rerender without it jumping.
+    // This removes the need to create a placeholder with the right size.
     this.chart.addSeries({
       id: 'foo',
       name: 'Line 1',
@@ -33658,15 +33658,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
               series[_key] = arguments[_key];
             }
 
-            series.forEach(function (_ref) {
-              var id = _ref.id,
-                  _ref$data = _ref.data,
-                  data = _ref$data === undefined ? [] : _ref$data;
-
-              if (_this._findSeries(id)) {
-                throw new Error("Series with ID '" + id + "' already exists.");
+            series.forEach(function (params) {
+              if (_this._findSeries(params.id)) {
+                throw new Error("Series with ID '" + params.id + "' already exists.");
               }
-              _this.options.series.push({ id: id, data: data });
+              _this.options.series.push(params);
             });
           }
         }, {

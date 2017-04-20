@@ -26,11 +26,11 @@ export default class {
   addSeries(...series) {
     this._initSeries();
 
-    series.forEach(({ id, data = []}) => {
-      if (this._findSeries(id)) {
-        throw new Error(`Series with ID '${id}' already exists.`);
+    series.forEach(params => {
+      if (this._findSeries(params.id)) {
+        throw new Error(`Series with ID '${params.id}' already exists.`);
       }
-      this.options.series.push({ id, data });
+      this.options.series.push(params);
     });
   }
 
