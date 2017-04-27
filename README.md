@@ -28,7 +28,7 @@ For least headache, use both of the following:
 **Simple case**
 
 Add the following CSS to your project:
-```
+```css
 chart {
   display: block;
 }
@@ -45,7 +45,7 @@ Highcharts provides a method to manually _reflow_ the chart, which takes care of
 There are two options: either to trigger the reflow manually, or call it within a callback passed to `$timeout()` service.
 
 Example:
-```
+```javascript
 import HighChart from 'angular-highcharts';
 
 angular.controller('foo', () => {
