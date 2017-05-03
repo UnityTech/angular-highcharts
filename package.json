@@ -1,9 +1,17 @@
 {
   "name": "angular-highcharts",
   "version": "0.3.0",
-  "description": "Highcharts wrapper for Angular 1.x",
+  "description": "Lightweight highcharts wrapper for Angular 1.x",
   "author": "Maciej Gurban <maciej@unity3d.com>",
   "main": "dist/angular-highcharts.js",
+  "homepage": "https://github.com/UnityTech/angular-highcharts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UnityTech/angular-highcharts"
+  },
+  "bugs": {
+    "url": "https://github.com/UnityTech/angular-highcharts/issues"
+  },
   "scripts": {
     "test": "karma start ./karma.conf.js --watch",
     "build": "browserify src/angular-highcharts.js -s angular-highcharts | derequire > dist/angular-highcharts.js && npm run build-demo",
