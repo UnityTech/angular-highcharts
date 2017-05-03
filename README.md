@@ -1,22 +1,77 @@
 This library aims to provide a lightweight wrapper around Highcharts.
 
-Consult [the demo](demo/usage-demo.component.js) for usage example.
+Check [the demo](demo/usage-demo.component.js) for usage example.
 
 
-### Setup
-Clone project repo, and inside its directory, execute:
-```
-npm install
+### Import
+
+Browserify:
+
+```javascript
+const HighChart = require('angular-highcharts');
 ```
 
-### Run unit tests
-```
-npm test
+Webpack:
+
+```javascript
+import HighChart from 'angular-highcharts';
 ```
 
-### Run the dev task
-```
-npm run watch
+### Quick reference
+
+```javascript
+const highchartsConfig = {
+  chart: {
+    type: 'area',
+  },
+  title: {
+    text: 'Simple chart',
+  },
+};
+
+const fooSeries = {
+  id: 'foo',
+  data: [
+    [1, 3],
+    [2, 2],
+  ],
+};
+
+const barSeries = {
+  id: 'bar',
+  data: [
+    [2, 1],
+    [1, 0],
+  ],
+};
+
+// This example utilizes angular.component(), but nothing stops you from using the
+// same code (contents of $onInit() method) in a directive, or in a controller
+// bound to a template by ng-controller, or by a router
+app.component('myComponent', {
+  controller: function() {
+    const $ctrl = this;
+
+    $ctrl.$onInit() {
+      // Initialize new chart
+      const chart = new HighChart(highchartsConfig);
+
+      // Add one data series
+      chart.addSeries(fooSeries);
+
+      // Add multiple data series in one go
+      chart.addSeries(fooSeries, barSeries);
+
+      // Remove all series in a chart
+      chart.removeAllSeries();
+    };
+  },
+  template: `
+    <chart
+      chart="$ctrl.chart">
+    </chart>
+  `
+});
 ```
 
 ### FAQ
@@ -46,14 +101,26 @@ There are two options: either to trigger the reflow manually, or call it within 
 
 Example:
 ```javascript
-import HighChart from 'angular-highcharts';
+const chart = new HighChart({});
+$timeout(() => {
+  $window.Highcharts.charts.filter(chart => chart).forEach(chart => chart.reflow());
+});
+```
 
-angular.controller('foo', () => {
-  const chart = new HighChart({});
-  $timeout(() => {
-    $window.Highcharts.charts.filter(chart => chart).forEach(chart => chart.reflow());
-  });
-})
+### Development
+Clone project repo, and inside its directory, execute:
+```
+npm install
+```
+
+### Run unit tests
+```
+npm test
+```
+
+### Run the dev environment
+```
+npm run watch
 ```
 
 ### Dependencies
