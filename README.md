@@ -1,9 +1,11 @@
+# AngularJS-Highcharts
+
 This library aims to provide a lightweight wrapper around Highcharts.
 
 Check [the demo](demo/usage-demo.component.js) for usage example.
 
 
-### Import
+## Import
 
 Browserify:
 
@@ -22,7 +24,7 @@ From a CDN:
 <script src="https://unpkg.com/angularjs-highcharts@0.3.0/dist/angular-highcharts.js"></script>
 ```
 
-### Quick reference
+## Quick reference
 
 ```javascript
 const highchartsConfig = {
@@ -79,9 +81,9 @@ app.component('myComponent', {
 });
 ```
 
-### FAQ
+## FAQ
 
-#### How to ensure the chart always takes full width of its container?
+### How to ensure the chart always takes full width of its container?
 
 For least headache, use both of the following:
 
@@ -112,7 +114,7 @@ $timeout(() => {
 });
 ```
 
-### Development
+## Development
 Clone project repo, and inside its directory, execute:
 ```
 npm install
@@ -128,6 +130,12 @@ npm test
 npm run watch
 ```
 
-### Dependencies
+## Dependencies
 + Angular 1.5+
 + Highcharts 4+
++ Babel polyfill
+
+The easiest way is to install and import the Babel polyfill package, but you can also explicitly import only what's needed, which is:
++ [Array.find()](https://github.com/zloirock/core-js/blob/v2.4.1/modules/es6.array.find.js)
++ [Array.findIndex()](https://github.com/zloirock/core-js/blob/v2.4.1/modules/es6.array.find-index.js)
++ [Array.forEach()](https://github.com/zloirock/core-js/blob/v2.4.1/modules/es6.array.for-each.js)
