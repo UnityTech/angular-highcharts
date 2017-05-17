@@ -17,6 +17,11 @@ Webpack:
 import HighChart from 'angular-highcharts';
 ```
 
+From a CDN:
+```javascript
+<script src="https://unpkg.com/angularjs-highcharts@0.3.0/dist/angular-highcharts.js"></script>
+```
+
 ### Quick reference
 
 ```javascript
