@@ -4,6 +4,10 @@ This library aims to provide a lightweight wrapper around Highcharts.
 
 Check [the demo](demo/usage-demo.component.js) for usage example.
 
+## Install
+```
+npm install angularjs-highcharts -S
+```
 
 ## Import
 
